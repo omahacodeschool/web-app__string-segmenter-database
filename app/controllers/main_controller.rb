@@ -17,12 +17,14 @@ MyApp.get "/segment" do
   x = StringSegmenter.new(params[:string_to_segment])
   x.run_program
   @words = x.final_words.join(", ")
+  @jumbled = :string_to_segment
 
   erb :"result"
 end
 
 MyApp.get "/admin" do
-  x = String.new
-  x.name = params[:string_to_segment]
-  erb :"admin"
+  x = Jumbled.new
+  x.jumbled_string = @jumbled
+  x.save
+  erb :"admin/results_table"
 end
