@@ -1,1 +1,6 @@
-<h1> hello</h1>
+
+<ul>
+  <% @words.each do |word| %>
+    <li><%= word.long_string %> ---> <%= word.seperated_string %></li>
+  <% end %>
+</ul>

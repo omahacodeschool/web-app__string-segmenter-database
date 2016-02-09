@@ -13,6 +13,7 @@ require_relative "./_configure"
 # What table do you need to store the necessary information?
 # What columns do you need in that table?
 
-DB.define_table("segmentedstrings")
-DB.define_column("segmentedstrings", "string", "string")
-DB.define_column("segmentedstrings", "seperated_string", "string")
+DB.define_table("segmented_strings")
+DB.define_column("segmented_strings", "long_string", "string")
+DB.define_column("segmented_strings", "seperated_string", "string")
+
