@@ -12,6 +12,10 @@ MyApp.get "/" do
   erb :"/main"
 end
 
+MyApp.get "/admin" do
+  erb :"/admin"
+end
+
 MyApp.get "/segment" do
   x = StringSegmenter.new(params[:string])
   x.run_program
