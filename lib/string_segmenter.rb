@@ -1,3 +1,5 @@
+require_relative 'dictionary'
+
 class StringSegmenter
   def initialize(str)
     @str = str
@@ -9,9 +11,9 @@ class StringSegmenter
   end
 
   # Method executes program. Returns a String.
-  def run_program()
-    final_words()
-    segmented_output()
+  def run_program
+    final_words
+    segmented_output
   end
 
   # RETURNS words Array as a String if the length of the joined words array is indentical to the length of the inputted string
