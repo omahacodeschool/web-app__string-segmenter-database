@@ -17,7 +17,7 @@ MyApp.get "/" do
 end
 
 MyApp.post "/segment_page" do
-  x = StringSegmenter.new
+  x = StringSegmenter.new(params[:string])
   x.run_program(params[:string])
   @final_print = x.final_words
 

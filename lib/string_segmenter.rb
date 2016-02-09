@@ -1,7 +1,8 @@
 require_relative 'dictionary'
 
 class StringSegmenter
-  def initialize
+  def initialize(str)
+    @str = str
     @words = []
     @word_index = Hash.new(0)
     @first_letter = 0
