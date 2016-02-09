@@ -9,3 +9,16 @@
 # Your controller actions go below this line.
 # -----------------------------------------------------------------------------
 
+require_relative "../../lib/string_segmenter"
+
+
+MyApp.get "/" do
+  erb :"main/welcome"
+end
+
+# MyApp.post "/segment_page" do
+#   x = StringSegmenter.new(params[:string])
+#   x.run_program
+#   x.final_words
+#   erb :"main/segment_page"
+# end
