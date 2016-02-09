@@ -9,3 +9,16 @@
 # Your controller actions go below this line.
 # -----------------------------------------------------------------------------
 
+MyApp.get "/" do
+  erb :"main/welcome"
+end
+
+
+MyApp.get "/" do
+  erb :"main/admin"
+end
+
+
+MyApp.get "/" do
+  erb :"main/segmented_text"
+end
