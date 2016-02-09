@@ -12,7 +12,7 @@
 MyApp.get "/:text" do
   x = StringSegmenter.new(params[:text])
   x.run_program
-  x.final_words
+  @words = x.final_words
   erb :"main/welcome"
 end
 
@@ -24,4 +24,5 @@ end
 
 MyApp.get "/segmented_text" do
   erb :"main/segmented_text"
+  @finalwords = x.final_words
 end
