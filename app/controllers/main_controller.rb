@@ -1,3 +1,5 @@
+require './lib/string_segmenter'
+
 # Example of the StringSegmenter that is ALREADY included in this application:
 
 # x = StringSegmenter.new("pubcat")
@@ -11,4 +13,9 @@
 
 MyApp.get "/" do
   erb :"main/welcome"
+end
+
+MyApp.get "/segment/:text" do
+  x = StringSegmenter.new(params[:text])
+  binding.pry
 end

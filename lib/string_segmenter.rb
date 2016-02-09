@@ -1,3 +1,5 @@
+require_relative 'dictionary'
+
 class StringSegmenter
   def initialize(str)
     @str = str
