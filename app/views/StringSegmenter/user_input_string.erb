@@ -1,0 +1,10 @@
+<h1>String Segmenter Result</h1>
+
+<!-- displays original String from user_input form submission. -->
+<p> You entered: <br> <%= "#{params[:user_input]}" %><br><br>
+
+<!-- displays segmented String from user_input form submission. -->
+<!-- segmentation triggered by program located in lib/string_segmenter.rb -->
+<p>Your result is: <br><%= @user_segmentation %></p>
+
+<center> <p><a href="/string_segmenter">Play Again.</a> | <a href="/">Home.</a></p></center>

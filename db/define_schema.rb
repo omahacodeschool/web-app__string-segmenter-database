@@ -12,3 +12,9 @@ require_relative "./_configure"
 
 # What table do you need to store the necessary information?
 # What columns do you need in that table?
+
+DB.define_table("histories")
+DB.define_column("histories", "original_string", "string")
+DB.define_column("histories", "valid_segment", "boolean")
+DB.define_column("histories", "result", "string")
+
