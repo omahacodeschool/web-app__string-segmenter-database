@@ -2,6 +2,6 @@
 
 <p>Below is a list of all the strings that have been segmented into words</p>
 
-<% @chains.each |c| %>
-<p>At <%= c.created_at %>someone submitted <%= c.raw %>which was broken into <%= c.processed %>.</p>
+<% @chains.each do |c| %>
+<p><%= c.raw %> ----> <%= c.processed %></p>
 <% end %>  

@@ -13,17 +13,17 @@ MyApp.get "/" do
 end
 
 MyApp.get "/admin" do
-  @chains = @y.all
+  @chains = Chain.all
   erb :"/admin"
 end
 
 MyApp.get "/segment" do
   x = StringSegmenter.new(params["string"])
-  @y = Chain.new
+  x.run_program
+  words = x.final_words # Returns an Array of the segmented words.
+  y = Chain.new
   y.raw = params["string"]
   y.save
-  x.run_program
-  @words = x.final_words # Returns an Array of the segmented words.
   y.processed = @words
   y.save
   erb :"/segment"
