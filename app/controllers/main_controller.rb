@@ -8,4 +8,15 @@
 
 # Your controller actions go below this line.
 # -----------------------------------------------------------------------------
+require_relative "../../lib/string_segmenter"
+require_relative "../../lib/dictionary"
 
+MyApp.get "/" do
+  
+  erb :"main/welcome"
+end
+
+MyApp.get "/admin" do
+
+  erb :"main/admin"
+end
