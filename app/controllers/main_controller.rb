@@ -1,4 +1,5 @@
-require_relative '..lib/string_segmenter.rb'
+require_relative '../../lib/string_segmenter.rb'
+require 'pry'
 # Example of the StringSegmenter that is ALREADY included in this application:
 
 
@@ -28,9 +29,10 @@ MyApp.get '/newstring' do
 end
 
 MyApp.get "/:str" do
-  x = StringSegmenter.new(:str)
+  str = params[:str]
+  x = StringSegmenter.new(str)
   x.run_program
-  @answer = x.final_words
+  @words = x.final_words
   erb :"main/segmented"
 end
 

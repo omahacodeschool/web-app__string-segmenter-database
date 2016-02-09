@@ -1,3 +1,4 @@
+require_relative 'dictionary.rb'
 class StringSegmenter
   def initialize(str)
     @str = str
