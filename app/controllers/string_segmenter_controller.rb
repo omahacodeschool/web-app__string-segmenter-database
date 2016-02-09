@@ -14,10 +14,11 @@ end
 class MyApp
 
   get '/StringSegmenter/user_input_string' do
-  history = Input.new
+  @user_segmentation = Segment.new(params[:user_input]).run_program
+  history = History.new
   history.original_string = params[:user_input]
+  history.result = @user_segmentation
   history.save
-  @user_segmentation = Segment.new(params[:user_input])
   erb :"/StringSegmenter/user_input_string"
   end
 

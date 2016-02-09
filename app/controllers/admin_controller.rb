@@ -1,4 +1,4 @@
 MyApp.get "/admin" do
-  @history = Input.all
+  @history = History.all
   erb :"/main/Admin"
 end
