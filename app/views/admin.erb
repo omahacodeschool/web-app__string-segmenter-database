@@ -1,0 +1,7 @@
+<h1>Hello!</h1>
+
+<p>Below is a list of all the strings that have been segmented into words</p>
+
+<% @chains.each do |c| %>
+<p><%= c.raw %> ----> <%= c.processed %></p>
+<% end %>  
