@@ -25,6 +25,12 @@ end
 MyApp.get "/segmenter" do
   
   @segment = StringSegmenter.new(params[:string])
+
+  @i = Letter.new
+  @i.search_string = params[:string]
+  @i.segmented_parts = segmented_words_as_strings
+  @i.save
+  binding.pry
   
   erb :"/b/segmenter"
 
