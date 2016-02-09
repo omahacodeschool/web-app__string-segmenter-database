@@ -11,29 +11,30 @@
 require_relative "../../lib/string_segmenter"
 require_relative "../../lib/dictionary"
 
-
-MyApp.get "/admin" do
-
-  erb :"main/admin"
-end
-
-MyApp.get "/segment" do
-  x = StringSegmenter.new(params["string_to_segment"])
-  x.run_program
-  @result = x.final_words.join(", ")
-
-  erb :"main/result"
-end
-
 MyApp.get "/" do
   
   erb :"main/welcome"
 end
+
+
+MyApp.get "/segment" do
+  new_segmenter = StringSegmenter.new(params["string_to_segment"])
+  new_segmenter.run_program
+  result = new_segmenter.final_words.join(", ")
+
+  @s = Search.new
+  @s.search_string = params["string_to_segment"]
+  @s.segmented_parts = result
+  @result.save
+
+  erb :"main/result"
+end
+
 
 MyApp.get "/add_word"
   x = Segmenter.new
   x.words = params["string_to_segment"]
   x.save
 
-  erb 
+  erb :"main/admin"
 end
