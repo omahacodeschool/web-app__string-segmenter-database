@@ -31,9 +31,19 @@ MyApp.get "/:str" do
 end
 
 
- MyApp.post "/main/show_words" do
-  words = StringSegmenter.new(params[:string])
+ MyApp.get "/main/show_words" do
+  words = StringSegmenter.new(params[:entered_string])
   words.run_program
   @words = words.final_words
   erb :"/main/show_words"
 end
+
+
+#MyApp.get "/admin" do
+
+
+
+
+
+
+
