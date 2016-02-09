@@ -9,7 +9,8 @@
 # Your controller actions go below this line.
 # -----------------------------------------------------------------------------
 
-MyApp.get "/" do
+MyApp.get "/:text" do
+  x = StringSegmenter.new(params[:text])
   erb :"main/welcome"
 end
 
