@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  database: ssd
+  host: localhost
+test:
+  adapter: postgresql
+  database: ssd-test
+  host: localhost
