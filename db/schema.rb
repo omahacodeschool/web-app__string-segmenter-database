@@ -16,9 +16,18 @@ ActiveRecord::Schema.define(version: 0) do
   enable_extension "plpgsql"
 
   create_table "inputstrings", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "name"
+    t.string   "inputstrings"
+    t.string   "outputstrings"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "inputstring"
+    t.string   "segmentstring"
   end
 
   create_table "strings", force: :cascade do |t|

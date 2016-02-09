@@ -24,15 +24,25 @@ MyApp.get "/" do
   erb :"main/welcome"
 end
 
-MyApp.get '/newstring' do
-  redirect to('/' + params[:input])
+MyApp.get "/searches"
+  erb :"main/pastsearches"
 end
+
+#MyApp.get "/newstring" do
+#  redirect to('/' + params[:input])
+#end
 
 MyApp.get "/:str" do
   str = params[:str]
   x = StringSegmenter.new(str)
   x.run_program
   @words = x.final_words
+
+  @s = Search.new
+  @s.inputstring = params[:str]
+  @s.segmentstring = @words
+  @s.save
+
   erb :"main/segmented"
 end
 
