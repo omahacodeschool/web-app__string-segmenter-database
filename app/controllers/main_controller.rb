@@ -41,9 +41,7 @@ MyApp.get "/segment" do
 	  input.save
 	  @result = input.segmented
 	else
-		binding.pry
-	   input = Word.where(:unsegmented => params["string_to_segment"]).take
-	   @result = input.segmented
+	   @result = Word.where(:unsegmented => params["string_to_segment"]).first.segmented
 	 return @result
 	end
   erb :"result"
