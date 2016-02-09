@@ -17,5 +17,6 @@ end
 
 MyApp.get "/segment/:text" do
   x = StringSegmenter.new(params[:text])
-  binding.pry
+  x.run_program
+  @words = x.final_words
 end
