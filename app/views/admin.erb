@@ -1,6 +1,20 @@
 
-<ul>
-  <% @words.each do |word| %>
-    <li><%= word.long_string %> ---> <%= word.seperated_string %></li>
-  <% end %>
-</ul>
+<center>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Sloppy String</th>
+      <th>Segmented String</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @words.each do |word| %>
+      <tr>
+        <td><%= word.long_string %></td>
+        <td><%= word.seperated_string %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</center>
