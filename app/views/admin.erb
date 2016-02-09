@@ -1,0 +1,8 @@
+<a href="/">homepage</a>
+<a href="/result">result</a>
+
+<ul>
+  <% @searches.each do |search| %>
++    <li><%= search.search_string %> ---> <%= search.segmented_parts %></li>
++  <% end %>
++</ul> 
