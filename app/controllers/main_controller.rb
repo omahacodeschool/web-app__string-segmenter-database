@@ -22,9 +22,9 @@ end
 
 
 
-MyApp.post "/segmenter" do
-  @str = params[:string]
-  @segment = StringSegmenter.new(@str)
+MyApp.get "/segmenter" do
+  
+  @segment = StringSegmenter.new(params[:string])
   
   erb :"/b/segmenter"
 
