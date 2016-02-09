@@ -1,4 +1,4 @@
 MyApp.get "/admin" do
   @searches = Search.all
-  erb :"admin"
+  erb :"main/admin"
 end

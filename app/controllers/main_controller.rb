@@ -32,3 +32,7 @@ MyApp.get "/segment" do
 
   erb :"main/result"
 end
+
+MyApp.get "/admin" do
+  erb :"main/admin"
+end
