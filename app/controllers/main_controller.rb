@@ -9,3 +9,7 @@
 # Your controller actions go below this line.
 # -----------------------------------------------------------------------------
 
+MyApp.get "/" do
+  
+  erb :"views/welcome"
+end
