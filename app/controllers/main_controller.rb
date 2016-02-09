@@ -1,3 +1,5 @@
+'../lib/string_segmenter.rb'
+
 # Example of the StringSegmenter that is ALREADY included in this application:
 
 # x = StringSegmenter.new("pubcat")
@@ -8,4 +10,9 @@
 
 # Your controller actions go below this line.
 # -----------------------------------------------------------------------------
+
+MyApp.get "/" do
+
+  erb :"/home"
+end
 
