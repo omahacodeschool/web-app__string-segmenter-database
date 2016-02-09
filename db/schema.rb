@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 0) do
     t.string   "jumbled_string"
   end
 
+  create_table "searches", force: :cascade do |t|
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "search_string"
+    t.string   "segmented_parts"
+  end
+
   create_table "segmenteds", force: :cascade do |t|
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false

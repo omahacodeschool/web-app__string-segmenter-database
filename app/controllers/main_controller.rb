@@ -17,14 +17,17 @@ MyApp.get "/segment" do
   x = StringSegmenter.new(params[:string_to_segment])
   x.run_program
   @words = x.final_words.join(", ")
-  @jumbled = :string_to_segment
 
-  erb :"result"
+  @s = Search.new
+  @s.search_string = params[:string_to_segment]
+  @s.segmented_parts = @words
+  @s.save
+
+  erb :"/result"
+
 end
 
 MyApp.get "/admin" do
-  x = Jumbled.new
-  x.jumbled_string = @jumbled
-  x.save
-  erb :"admin/results_table"
+  @searches = Search.all
+  erb :"Admin/all_results"
 end
