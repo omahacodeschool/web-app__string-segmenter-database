@@ -12,7 +12,16 @@
 # -----------------------------------------------------------------------------
 
 MyApp.get "/" do
-
-  erb :"/home"
+  erb :"/main"
 end
 
+MyApp.get "/admin" do
+  erb :"/admin"
+end
+
+MyApp.get "/segment" do
+  x = StringSegmenter.new(params[:string])
+  x.run_program
+  @words = x.final_words.join # Returns an Array of the segmented words.
+  erb :"/segment"
+end
