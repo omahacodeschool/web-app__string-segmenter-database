@@ -14,11 +14,11 @@ MyApp.get "/" do
 end
 
 
-MyApp.get "/" do
+MyApp.get "/admin" do
   erb :"main/admin"
 end
 
 
-MyApp.get "/" do
+MyApp.get "/segmented_text" do
   erb :"main/segmented_text"
 end
