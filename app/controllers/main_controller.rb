@@ -16,11 +16,11 @@ MyApp.get "/" do
   # 
   # Then it will combine that view file with the layout file and sent the
   # combined document back to the client.
-  erb :"main/welcome"
+  erb :"welcome"
 end
 
 MyApp.get "/segment" do
-  x = Segment.new(params["string_to_segment"])
+  x = StringSegmenter.new(params["string_to_segment"])
   x.run_program
   @words = x.final_words
 
