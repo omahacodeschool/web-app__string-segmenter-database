@@ -9,3 +9,7 @@
 # Your controller actions go below this line.
 # -----------------------------------------------------------------------------
 
+MyApp.get "/" do
+  @available_dictionary = available_dictionary()
+  erb :"/main/welcome"
+end

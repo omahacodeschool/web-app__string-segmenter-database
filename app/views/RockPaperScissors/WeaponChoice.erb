@@ -1,0 +1,15 @@
+<header>
+   <center><h1>Rock Paper Scissors</h1></center>
+   <h2>Choose Your Weapon</h2>
+  </header>
+<form action="">
+<label> <%= @game.get_name() %>, make your choice:</label><br>
+  <input type="radio" name="weapon" value="rock"> Rock&emsp;&emsp;
+  <input type="radio" name="weapon" value="paper"> Paper&emsp;&emsp;
+  <input type="radio" name="weapon" value="scissors"> Scissors<br><br>
+  <label> <%= @game.get_other_name() %>, make your choice:</label><br>
+  <input type="radio" name="other_weapon" value="rock"> Rock&emsp;&emsp;
+  <input type="radio" name="other_weapon" value="paper"> Paper&emsp;&emsp;
+  <input type="radio" name="other_weapon" value="scissors"> Scissors<br><br><br>
+  <input type="submit" value="Submit">
+</form>
