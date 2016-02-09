@@ -22,11 +22,4 @@ ActiveRecord::Schema.define(version: 0) do
     t.string   "processed"
   end
 
-  create_table "strings", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "raw"
-    t.string   "processed"
-  end
-
 end
