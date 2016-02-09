@@ -1,7 +1,12 @@
 require_relative "./_configure"
 
+
 # Define your tables and their columns below this line.
 # -----------------------------------------------------------------------------
+DB.define_table("string")
+DB.define_column("string","fullstring","string")
+DB.define_column("string","segstring","string")
+
 
 # Column names should be all lowercase and have no spaces or any other special
 # characters--except for underscores. So "running_time" is valid, but

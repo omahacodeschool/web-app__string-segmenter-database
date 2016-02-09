@@ -8,4 +8,17 @@
 
 # Your controller actions go below this line.
 # -----------------------------------------------------------------------------
+# class String < ActiveRecord::Base
+#   end
+MyApp.get "/" do
 
+  erb :"home"
+end
+
+MyApp.get "/page2" do
+  x = StringSegmenter.new(params[:string])
+  x.run_program
+  @result = x.final_words
+  binding.pry
+  erb :"page2"
+end
