@@ -16,9 +16,20 @@ MyApp.get "/" do
 end
 
 MyApp.get "/page2" do
-  x = StringSegmenter.new(params[:string])
+  x = StringSegmenter.new(params["string"])
   x.run_program
   @result = x.final_words
-  binding.pry
+  y = String.new
+  y.segstring = @result
+  y.save
+
+
+
+
   erb :"page2"
 end
+
+MyApp.get "/allwords"
+  @collection = String.all
+  erb :"allwords"
+  
