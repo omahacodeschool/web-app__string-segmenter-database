@@ -24,7 +24,7 @@ MyApp.get "/" do
 end
 
 MyApp.get "/:str" do
-  words = StringSegmenter.new.(params[:str])
+  words = StringSegmenter.new(params[:str])
   words.run_program
   @words = words.final_words
   erb :"main/show_words"
