@@ -20,12 +20,17 @@ MyApp.get "/" do
 end
 
 MyApp.get "/segment" do
-  input = Word.new
-  input.unsegmented = params["string_to_segment"]
-  x = StringSegmenter.new(params["string_to_segment"])
-  x.run_program
-  @words = x.final_words
-  input.segmented = x.final_words
+	if  Word.where(:unsegmented => params["string_to_segment"]).blank?
+	  input = Word.new
+	  input.unsegmented = params["string_to_segment"]
+	  x = StringSegmenter.new(params["string_to_segment"])
+	  x.run_program
+	  input.segmented = x.final_words
+	  @result = input.segmented
+	else
+	   @result = Word.where(:unsegmented => params["string_to_segment"]).segmented
+	 return @result
+	end
   erb :"result"
 end
 
