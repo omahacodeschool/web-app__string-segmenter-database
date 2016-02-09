@@ -19,4 +19,6 @@ MyApp.get "/segment/:text" do
   x = StringSegmenter.new(params[:text])
   x.run_program
   @words = x.final_words
+
+  erb :"main/result"
 end
