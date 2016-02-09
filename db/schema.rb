@@ -20,4 +20,18 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "enteredstrings", force: :cascade do |t|
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "entered_string"
+    t.string   "words"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "search_string"
+    t.string   "segmented_parts"
+  end
+
 end

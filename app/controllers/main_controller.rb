@@ -34,12 +34,40 @@ end
  MyApp.get "/main/show_words" do
   words = StringSegmenter.new(params[:entered_string])
   words.run_program
-  @words = words.final_words
-  erb :"/main/show_words"
+  segmented_arr = words.final_words # Returns an Array of the segmented words.
+  segmented_words_as_string = segmented_arr.join(", ")
+
+  # Use the ActiveRecord 'EnteredString' class to access the database
+
+  @s = Search.new
+  @s.search_string = params[:entered_string]
+  @s.segmented_parts = segmented_words_as_string
+  @s.save
+  erb :"main/show_words"
 end
 
+# +  x = StringSegmenter.new(params[:unsegmented_text])
+# +  x.run_program
+# +  segmented_arr = x.final_words # Returns an Array of the segmented words.
+# +  segmented_words_as_string = segmented_arr.join(", ")
+# +
+# +  # Use the ActiveRecord 'Search' class to access the database.
+# +  @s = Search.new
+# +  @s.search_string = params[:unsegmented_text]
+# +  @s.segmented_parts = segmented_words_as_string
+# +  @s.save
 
-#MyApp.get "/admin" do
+# MyApp.get "/main/show_words" do
+#   entered_string = Enteredstring.new
+#   entered_string.name = params[:entered_string]
+#   entered_string.save
+#   binding.pry
+#   erb :"main/show_words"
+# end
+
+# MyApp.get "/admin" do
+#   erb :"main/admin"
+# end
 
 
 

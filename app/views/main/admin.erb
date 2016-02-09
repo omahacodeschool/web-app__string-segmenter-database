@@ -1,3 +1,8 @@
 <h1>This is the Admin Page</h1>
 
-<p> The words from the string you entered are: <%= @words.join(", ") %></p>
+
+<ul>
+  <% @searches.each do |search| %>
+    <li><%= search.search_string %> ---> <%= search.segmented_parts %></li>
+  <% end %>
+</ul>
