@@ -15,4 +15,30 @@ ActiveRecord::Schema.define(version: 0) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "jumbleds", force: :cascade do |t|
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "jumbled_string"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "search_string"
+    t.string   "segmented_parts"
+  end
+
+  create_table "segmenteds", force: :cascade do |t|
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "jumbled_string"
+    t.string   "parsed_string"
+  end
+
+  create_table "strings", force: :cascade do |t|
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "jumbled_string"
+  end
+
 end
