@@ -1,0 +1,5 @@
+<ul>
+  <% @searches.each do |search| %>
+    <li><%= search.search_string %> ---> <%= search.segmented_parts %></li>
+  <% end %>
+</ul>
