@@ -10,7 +10,6 @@
 # -----------------------------------------------------------------------------
 
 require_relative "../../lib/string_segmenter"
-require "pry"
 
 
 MyApp.get "/" do
@@ -21,9 +20,15 @@ MyApp.post "/segment_page" do
   x = StringSegmenter.new
   x.run_program(params[:string])
   x.final_words
+
+  y = Word.new
+  y.input = params[:string]
+  y.output = x.final_words
+  y.save
   erb :"main/segment_page"
 end
 
 MyApp.get "/admin" do
+  @words = Word.all
   erb :"main/admin"
 end
