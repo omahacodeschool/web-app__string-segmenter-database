@@ -12,3 +12,8 @@ require_relative "./_configure"
 
 # What table do you need to store the necessary information?
 # What columns do you need in that table?
+
+
+DB.define_table("words")
+DB.define_column("words", "unsegmented", "string")
+DB.define_column("words", "segmented", "string")
