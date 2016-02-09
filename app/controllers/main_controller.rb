@@ -29,3 +29,11 @@ MyApp.get "/" do
   
   erb :"main/welcome"
 end
+
+MyApp.get "/add_word"
+  x = Segmenter.new
+  x.words = params["string_to_segment"]
+  x.save
+
+  erb 
+end
