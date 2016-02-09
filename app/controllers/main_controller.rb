@@ -22,6 +22,7 @@ MyApp.get "/segment" do
   x = StringSegmenter.new(params["string_to_segment"])
   x.run_program
   @words = x.final_words
+  segmented_words_as_string = @words.join(", ")
 
   # Use the ActiveRecord 'Search' class to access the database
   @s = Search.new
