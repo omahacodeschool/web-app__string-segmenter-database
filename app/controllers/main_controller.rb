@@ -18,8 +18,12 @@ MyApp.get "/" do
 end
 
 MyApp.post "/segment_page" do
-  x = StringSegmenter.new#(params[:string])
+  x = StringSegmenter.new
   x.run_program(params[:string])
   x.final_words
   erb :"main/segment_page"
+end
+
+MyApp.get "/admin" do
+  erb :"main/admin"
 end
