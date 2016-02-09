@@ -8,6 +8,8 @@
 
 # Your controller actions go below this line.
 # -----------------------------------------------------------------------------
+# require_relative "../lib/dictionary"
+# require_relative "../lib/string_segmenter"
 
 MyApp.get "/" do
   # If a GET request is made to the root path, the following line of code
@@ -19,16 +21,11 @@ MyApp.get "/" do
   erb :"homepage"
 end
 
-#  MyApp.get "/:str" do
-#    # @str = params[:str]
-#    # @segment = StringSegmenter.new(@str)
-#    erb :"main/str"
-# end
 
-MyApp.post "/str" do
+MyApp.post "/segmenter" do
   @str = params[:string]
   @segment = StringSegmenter.new(@str)
   
-  erb :"main/str"
+  erb :"/b/segmenter"
 
 end
