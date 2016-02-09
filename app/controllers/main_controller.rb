@@ -16,6 +16,7 @@ MyApp.get "/" do
 end
 
 MyApp.get "/admin" do
+  @letters = Letter.all
   erb :"/a/admin"
 end
 
@@ -24,13 +25,17 @@ end
 
 MyApp.get "/segmenter" do
   
-  @segment = StringSegmenter.new(params[:string])
+  x = StringSegmenter.new(params[:string])
+  x.run_program
+  segmented_arr = x.final_words # Returns an Array of the segmented words.
+  segmented_words_as_string = segmented_arr.join(", ")
 
   @i = Letter.new
-  @i.search_string = params[:string]
-  @i.segmented_parts = segmented_words_as_strings
+  
+  @i.input_string = params[:string]
+  @i.output_words = segmented_words_as_string
   @i.save
-  binding.pry
+
   
   erb :"/b/segmenter"
 
