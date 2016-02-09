@@ -11,12 +11,21 @@
 require_relative "../../lib/string_segmenter"
 require_relative "../../lib/dictionary"
 
-MyApp.get "/" do
-  
-  erb :"main/welcome"
-end
 
 MyApp.get "/admin" do
 
   erb :"main/admin"
+end
+
+MyApp.get "/segment" do
+  x = StringSegmenter.new(params["string_to_segment"])
+  x.run_program
+  @result = x.final_words.join(", ")
+
+  erb :"main/result"
+end
+
+MyApp.get "/" do
+  
+  erb :"main/welcome"
 end
