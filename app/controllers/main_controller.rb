@@ -8,4 +8,13 @@
 
 # Your controller actions go below this line.
 # -----------------------------------------------------------------------------
+MyApp.get "/" do
+  erb :"/main"
+end
 
+MyApp.get "/segment" do
+  x = StringSegmenter.new(params[:string])
+  x.run_program
+  @words = x.final_words # Returns an Array of the segmented words.
+  erb :"/segment"
+end
