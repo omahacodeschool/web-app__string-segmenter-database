@@ -8,4 +8,21 @@
 
 # Your controller actions go below this line.
 # -----------------------------------------------------------------------------
+MyApp.get "/" do
 
+  erb :"main/homepage"
+end
+
+MyApp.get "/segment" do
+  x = StringSegmenter.new(params[:string_to_segment])
+  x.run_program
+  @words = x.final_words.join(", ")
+
+  erb :"result"
+end
+
+MyApp.get "/admin" do
+  x = String.new
+  x.name = params[:string_to_segment]
+  erb :"admin"
+end
