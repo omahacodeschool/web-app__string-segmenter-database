@@ -1,9 +1,10 @@
+
 <center>
 <h1>Segmentation!</h1>
-
 <%=
 input = params[:string]
-@StringSegmenter.run_program(input)
+x = StringSegmenter.new
+x.run_program(input)
 %>
 
 </center>
