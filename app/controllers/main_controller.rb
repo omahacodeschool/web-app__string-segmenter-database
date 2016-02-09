@@ -11,6 +11,8 @@
 
 MyApp.get "/:text" do
   x = StringSegmenter.new(params[:text])
+  x.run_program
+  x.final_words
   erb :"main/welcome"
 end
 
