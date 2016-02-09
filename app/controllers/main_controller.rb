@@ -19,6 +19,18 @@ MyApp.get "/" do
   erb :"welcome"
 end
 
+
+# MyApp.get "/segment" do
+# 	  input = Word.new
+# 	  input.unsegmented = params["string_to_segment"]
+# 	  x = StringSegmenter.new(params["string_to_segment"])
+# 	  x.run_program
+# 	  input.segmented = x.final_words
+# 	  input.save
+# 	  @result = input.segmented
+#   erb :"result"
+# end
+
 MyApp.get "/segment" do
 	if  Word.where(:unsegmented => params["string_to_segment"]).blank?
 	  input = Word.new
@@ -26,6 +38,7 @@ MyApp.get "/segment" do
 	  x = StringSegmenter.new(params["string_to_segment"])
 	  x.run_program
 	  input.segmented = x.final_words
+	  input.save
 	  @result = input.segmented
 	else
 	   @result = Word.where(:unsegmented => params["string_to_segment"]).segmented
@@ -34,3 +47,7 @@ MyApp.get "/segment" do
   erb :"result"
 end
 
+MyApp.get "/admin" do
+	@list_of_strings = Word.all
+  erb :"admin"
+end
