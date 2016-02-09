@@ -16,20 +16,16 @@ MyApp.get "/" do
 end
 
 MyApp.get "/page2" do
-  x = StringSegmenter.new(params["string"])
+  x = StringSegmenter.new(params["a"])
   x.run_program
   @result = x.final_words
-  y = String.new
-  y.segstring = @result
+  y = Apple.new
+  y.words = @result
   y.save
-
-
-
-
   erb :"page2"
 end
 
-MyApp.get "/allwords"
-  @collection = String.all
+MyApp.get "/all_words" do
+  @collection = Apple.all
   erb :"allwords"
-  
+end
