@@ -11,8 +11,7 @@ class StringSegmenter
   end
 
   # Method executes program. Returns a String.
-  def run_program(input)
-    @str = input
+  def run_program
     final_words
     segmented_output
   end

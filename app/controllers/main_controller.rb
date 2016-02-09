@@ -18,7 +18,7 @@ end
 
 MyApp.post "/segment_page" do
   x = StringSegmenter.new(params[:string])
-  x.run_program(params[:string])
+  x.run_program
   @final_print = x.final_words
 
   y = Word.new
