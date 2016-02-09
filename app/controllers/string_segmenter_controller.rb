@@ -13,7 +13,10 @@ end
 ## passes :user_input form data as an arguement via params. 
 class MyApp
 
-  post '/StringSegmenter/user_input_string' do
+  get '/StringSegmenter/user_input_string' do
+  history = Input.new
+  history.original_string = params[:user_input]
+  history.save
   @user_segmentation = Segment.new(params[:user_input])
   erb :"/StringSegmenter/user_input_string"
   end
