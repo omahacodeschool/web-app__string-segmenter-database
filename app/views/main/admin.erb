@@ -2,8 +2,8 @@
 <center><h3>Abandon All Hope, Ye Who Enter Here...</h3></center>
 
 <ul>
-  <% searches.each do |search| %>
-  <li><%= search.search_string %> becomes <% search.segmented_parts %></li>
+  <% @searches.each do |search| %>
+  <li><%= search.search_string %> becomes <%= search.segmented_parts %></li>
   <% end %> 
 </ul>
 

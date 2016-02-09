@@ -17,24 +17,16 @@ MyApp.get "/" do
 end
 
 
-MyApp.get "/segment" do
-  new_segmenter = StringSegmenter.new(params["string_to_segment"])
-  new_segmenter.run_program
-  result = new_segmenter.final_words.join(", ")
+MyApp.get "/result" do
+  x = StringSegmenter.new(params["string_to_segment"])
+  x.run_program
+  segmented_arr = x.final_words
+  segmented_words_as_string = segmented_arr.join(", ")
 
   @s = Search.new
   @s.search_string = params["string_to_segment"]
-  @s.segmented_parts = result
-  @result.save
+  @s.segmented_parts = segmented_words_as_string
+  @s.save
 
   erb :"main/result"
-end
-
-
-MyApp.get "/add_word"
-  x = Segmenter.new
-  x.words = params["string_to_segment"]
-  x.save
-
-  erb :"main/admin"
 end
