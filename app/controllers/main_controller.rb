@@ -23,6 +23,12 @@ end
 MyApp.get "/segmented_text" do
   x = StringSegmenter.new(params[:smooshed_text])
   x.run_program
-  @words = x.final_words
+  segmented_arr = x.final_words
+  segmented_words_now_string = segmented_arr.join(", ")
+
+  @s = Search.new
+  @s.smooshed_words = params[:smooshed_text]
+  @s.seperated_words = segmented_words_now_string
+  @s.save
   erb :"main/segmented_text"
 end

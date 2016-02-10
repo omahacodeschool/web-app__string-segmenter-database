@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "updated_at",      null: false
     t.string   "smooshed_words"
     t.string   "seperated_words"
+    t.string   "search_string"
+    t.string   "segmented_parts"
   end
 
 end

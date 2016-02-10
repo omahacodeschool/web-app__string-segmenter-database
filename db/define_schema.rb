@@ -14,5 +14,5 @@ require_relative "./_configure"
 # What columns do you need in that table?
 
 DB.define_table("words")
-DB.define_column("words", "smooshed_words", "string")
-DB.define_column("words", "seperated_words", "string")
+DB.define_column("words", "search_string", "string")
+DB.define_column("words", "segmented_parts", "string")
