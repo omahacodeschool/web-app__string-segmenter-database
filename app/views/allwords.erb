@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html>
+
 <h1>Here are the words currently in the DataBase</h1>
-
-<body>
-<p><% @collection.each do |a|%>
-<%=a.name%>
-</p>
+<ul>
+<% @collection.each do |apple| %>
 
 
-</body>
-</html>
+
+ <li><%= apple.words %> ---> <%= apple.nospace %></li>
+<% end %>
+</ul>
+
