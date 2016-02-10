@@ -3,3 +3,8 @@ This is a page, where users can see a list of all of the times people have used 
 The list can be formatting any way; but for each use of the String Segmenter that is listed, do provide the text that was submitted in the form as well as the resulting segmented version.
 
 Example: "blueturtledisc" ... "blue", "turtle", "disc
+
+<% @searches.each do |s| %>
+   <p> <%= s.smooshed_words %>
+   <%= s.seperated_words%> </p> 
+<%end%>

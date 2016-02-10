@@ -13,6 +13,6 @@ require_relative "./_configure"
 # What table do you need to store the necessary information?
 # What columns do you need in that table?
 
-DB.define_table("words")
-DB.define_column("words", "search_string", "string")
-DB.define_column("words", "segmented_parts", "string")
+DB.define_table("searches")
+DB.define_column("searches", "smooshed_words", "string")
+DB.define_column("searches", "seperated_words", "string")
