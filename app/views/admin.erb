@@ -1,0 +1,10 @@
+<center><h1> Hello, Admin! </h1>
+
+<h3> Here is your master list of strings:</h3>
+
+<p><% @searches.each do |search| %>
+<li><%= search.unsegmented_text %> becomes <%= search.words_segmented_out %>
+</li>
+<% end %>
+</p>
+<a href="/">Home</a>

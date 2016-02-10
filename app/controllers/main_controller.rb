@@ -1,11 +1,30 @@
-# Example of the StringSegmenter that is ALREADY included in this application:
+# Process form.
+MyApp.get "/result" do
+  # Use the StringSegmenter to get the final words array.
+  x = StringSegmenter.new(params[:unsegmented_text])
+  x.run_program
+  segmented_arr = x.final_words # Returns an Array of the segmented words.
+  segmented_words_as_string = segmented_arr.join(", ")
 
-# x = StringSegmenter.new("pubcat")
-# x.run_program
-# x.final_words # Returns an Array of the segmented words.
+   #Use the ActiveRecord 'Search' class to access the database.
+  @s = Search.new
+  @s.unsegmented_text = params[:unsegmented_text]
+  @s.words_segmented_out = segmented_words_as_string
+  @s.save
 
-# So now you have the Ruby program needed to complete this assignment.
+  erb :"result"
+end  
 
-# Your controller actions go below this line.
-# -----------------------------------------------------------------------------
+MyApp.get "/admin" do
+#get list of strings
+@searches = Search.all
 
+erb :"admin"
+end
+
+# Show form.
+MyApp.get "/" do
+ 
+  erb :"homepage"
+
+end

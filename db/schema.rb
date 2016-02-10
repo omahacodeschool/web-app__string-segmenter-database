@@ -15,4 +15,18 @@ ActiveRecord::Schema.define(version: 0) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "searches", force: :cascade do |t|
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "unsegmented_text"
+    t.string   "words_segmented_out"
+  end
+
+  create_table "string_segmenter", force: :cascade do |t|
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "unsegmented_text"
+    t.string   "words_segmented_out"
+  end
+
 end
