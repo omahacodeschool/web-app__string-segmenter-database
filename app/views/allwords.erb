@@ -1,11 +1,7 @@
 
 <h1>Here are the words currently in the DataBase</h1>
 <ul>
-<% @collection.each do |apple| %>
-
-
-
- <li><%= apple.words %> ---> <%= apple.nospace %></li>
+<% @apples.each do |search| %>
+  <li><%= search.words %>---><%= search.nospace %></li>
 <% end %>
 </ul>
-

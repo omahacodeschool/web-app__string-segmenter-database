@@ -16,19 +16,22 @@ MyApp.get "/" do
 end
 
 MyApp.get "/page2" do
-  x = StringSegmenter.new(params[:a])
+  x = StringSegmenter.new(params["a"])
   x.run_program
   ray = x.final_words
-  result = ray.join(", ")
-
+  
+  @result = ray.join(", ")
+  
   @y = Apple.new
-  @y.words = result
-  @y.nospace = params[:a]
+  @y.nospace = params["a"]
+  @y.words = @result
+  
   @y.save
-  erb :"allwords"
+
+  erb :"page2"
 end
 
 MyApp.get "/all_words" do
-  @collection = Apple.all
+  @apples = Apple.all
   erb :"allwords"
 end

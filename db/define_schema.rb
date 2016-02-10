@@ -3,9 +3,9 @@ require_relative "./_configure"
 
 # Define your tables and their columns below this line.
 # -----------------------------------------------------------------------------
-DB.define_table("apple")
-DB.define_column("apple","words","string")
-DB.define_column("apple","nospace","string")
+DB.define_table("apples")
+DB.define_column("apples","words","string")
+DB.define_column("apples","nospace","string")
 
 
 # Column names should be all lowercase and have no spaces or any other special

@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 0) do
     t.string   "nospace"
   end
 
+  create_table "apples", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "words"
+    t.string   "nospace"
+  end
+
   create_table "segment", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
