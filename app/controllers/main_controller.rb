@@ -38,8 +38,8 @@ MyApp.get "/segmented" do
 
   # Use the ActiveRecord 'Search' class to access the database.
   @s = Search.new
-  @s.inputstrings = params[:unsegmented_text]
-  @s.segmentstrings = @words
+  @s.inputstring = params[:unsegmented_text]
+  @s.segmentstring = @words
   @s.save
   erb :"main/segmented"
 end
