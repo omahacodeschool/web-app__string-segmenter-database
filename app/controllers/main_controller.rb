@@ -1,3 +1,4 @@
+
 # Example of the StringSegmenter that is ALREADY included in this application:
 
 # x = StringSegmenter.new("pubcat")
@@ -9,10 +10,7 @@
 # Your controller actions go below this line.
 # -----------------------------------------------------------------------------
 
-MyApp.get "/:text" do
-  x = StringSegmenter.new(params[:text])
-  x.run_program
-  @words = x.final_words
+MyApp.get "/" do
   erb :"main/welcome"
 end
 
@@ -23,6 +21,8 @@ end
 
 
 MyApp.get "/segmented_text" do
+  x = StringSegmenter.new(params[:smooshed_text])
+  x.run_program
+  @words = x.final_words
   erb :"main/segmented_text"
-  @finalwords = x.final_words
 end

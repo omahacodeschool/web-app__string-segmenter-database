@@ -1,6 +1,21 @@
+
+
+
+
+
+
+<br>
 This is the homepage. It shows a form with a single text field.
-Typing some text into that field and submitting the form takes the user to a new page, where the segmented version of their text is displayed.
+
+<form action="/segmented_text">
+  <input type="text" name="smooshed_text">
+
+  <input type="submit">
+
+</form>
+
+Typing some text into that field and submitting the form takes the user to a new page, where the segmented version of their text is displayed.<br>
 
 This page should show a link to an "Admin" page.
-
-<%= @words.join", " %>
+<br>
+<a href="/admin">Admin Page</a>
