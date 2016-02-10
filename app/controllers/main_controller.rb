@@ -24,7 +24,6 @@ MyApp.get "/segment" do
   @words = x.final_words # Returns an Array of the segmented words.
   y = Chain.new
   y.raw = params["string"]
-  y.save
   y.processed = @words
   y.save
   erb :"/segment"
