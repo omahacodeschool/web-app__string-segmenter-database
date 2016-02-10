@@ -12,3 +12,7 @@ require_relative "./_configure"
 
 # What table do you need to store the necessary information?
 # What columns do you need in that table?
+
+DB.define_table("segmenter_results")
+DB.define_column("segmenter_results", "string_input", "string")
+DB.define_column("segmenter_results", "output_string", "string")
