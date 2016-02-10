@@ -24,27 +24,27 @@ MyApp.get "/" do
   erb :"main/welcome"
 end
 
-MyApp.get "/searches"
+MyApp.get "/searches" do
+  @searches = Search.all
   erb :"main/pastsearches"
 end
 
-#MyApp.get "/newstring" do
-#  redirect to('/' + params[:input])
-#end
-
-MyApp.get "/:str" do
-  str = params[:str]
-  x = StringSegmenter.new(str)
+MyApp.get "/segmented" do
+  # Use the StringSegmenter to get the final words array.
+  x = StringSegmenter.new(params[:unsegmented_text])
   x.run_program
-  @words = x.final_words
+  segmented_arr = x.final_words # Returns an Array of the segmented words.
+  @words = segmented_arr.join(", ")
 
+  # Use the ActiveRecord 'Search' class to access the database.
   @s = Search.new
-  @s.inputstring = params[:str]
-  @s.segmentstring = @words
+  @s.inputstrings = params[:unsegmented_text]
+  @s.segmentstrings = @words
   @s.save
-
   erb :"main/segmented"
 end
+
+
 
 
 

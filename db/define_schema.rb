@@ -14,5 +14,5 @@ require_relative "./_configure"
 # What columns do you need in that table?
 
 DB.define_table("searches")
-DB.define_column("searches", "inputstring", "string")
-DB.define_column("searches", "segmentstring", "string")
+DB.define_column("searches", "inputstrings", "string")
+DB.define_column("searches", "segmentstrings", "string")

@@ -24,10 +24,12 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "searches", force: :cascade do |t|
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "inputstring"
     t.string   "segmentstring"
+    t.string   "inputstrings"
+    t.string   "segmentstrings"
   end
 
   create_table "strings", force: :cascade do |t|
