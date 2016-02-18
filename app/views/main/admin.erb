@@ -1,10 +1,25 @@
 <h1>Administrative Page</h1>
 
-<% @results.each do |r| %>
-  
-  <%= r.string_input %>
-  <%= r.output_string %><br> 
+<p>This page shows user input for each attempt and the programs output</p>
 
+<table border="2">
+  <thead>
+    <tr>
+      <th>Input</th>
+      <th>Output</th>
+    </tr>
+  </thead>
 
+  <tbody>
+  <% @results.each do |r| %>
+    <tr>
+      <td><%= r.string_input %></td>
+      <td><%= r.output_string %></td>
+    </tr>
+  <% end %> 
+  </tbody>
+</table>
 
-<% end %>
+<br>
+<br>
+<a href="/">Home</a>

@@ -22,11 +22,4 @@ ActiveRecord::Schema.define(version: 0) do
     t.string   "output_string"
   end
 
-  create_table "string_segmenter", force: :cascade do |t|
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.string   "string_input"
-    t.string   "output_string"
-  end
-
 end
