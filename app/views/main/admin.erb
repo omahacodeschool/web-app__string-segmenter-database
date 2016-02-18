@@ -1,0 +1,25 @@
+<h1>Administrative Page</h1>
+
+<p>This page shows user input for each attempt and the programs output</p>
+
+<table border="2">
+  <thead>
+    <tr>
+      <th>Input</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @results.each do |r| %>
+    <tr>
+      <td><%= r.string_input %></td>
+      <td><%= r.output_string %></td>
+    </tr>
+  <% end %> 
+  </tbody>
+</table>
+
+<br>
+<br>
+<a href="/">Home</a>
